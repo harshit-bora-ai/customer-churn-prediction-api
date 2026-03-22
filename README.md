@@ -23,6 +23,72 @@ This project uses a **Logistic Regression model** to predict churn probability a
 
 ## Input Parameters
 
-| Feature | Description                      |
-| ------- | -------------------------------- |
-| tenure  | Number of months customer stayed |
+| Feature         | Description                                         |
+| --------------- | --------------------------------------------------- |
+| tenure          | Number of months customer stayed                    |
+| monthly_charges | Monthly bill amount                                 |
+| total_charges   | Total amount spent                                  |
+| contract        | Contract type (0 = monthly, 1 = yearly, 2 = 2-year) |
+
+---
+
+## How to Run
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+---
+
+## API Endpoint
+
+### POST `/predict`
+
+### Example Request
+
+```json
+{
+  "tenure": 10,
+  "monthly_charges": 90,
+  "total_charges": 900,
+  "contract": 0
+}
+```
+
+---
+
+## Example Response
+
+```json
+{
+  "prediction": 1,
+  "label": "churn",
+  "churn_probability": 0.9867,
+  "risk_level": "high"
+}
+```
+
+---
+
+## Tech Stack
+
+* Python
+* Flask
+* Scikit-learn
+* NumPy
+
+---
+
+## Future Improvements
+
+* Deploy API (Render / AWS)
+* Add frontend dashboard
+* Train on real-world dataset
+* Save & load trained model
+
+---
+
+## Author
+
+Harshit Bora
